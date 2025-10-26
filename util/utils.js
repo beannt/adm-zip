@@ -265,7 +265,7 @@ Utils.zipnamefix = function (path) {
     if (!path) return "";
     // trick normalize think path is absolute
     const safeSuffix = pth.posix.normalize("/" + path.split("\\").join("/"));
-    return pth.posix.join(".", safeSuffix);
+    return safeSuffix.slice(1);
 };
 
 /**

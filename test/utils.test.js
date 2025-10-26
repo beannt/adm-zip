@@ -108,7 +108,11 @@ describe("utils", () => {
                 { file: "../subfolder/file2", result: "subfolder/file2" },
                 { file: "../subfolder2/file2", result: "subfolder2/file2" },
                 { file: "../subfolder/file2", result: "subfolder/file2" },
-                { file: "../../subfolder2/file2", result: "subfolder2/file2" }
+                { file: "../../subfolder2/file2", result: "subfolder2/file2" },
+                // Windows path separators should be converted to forward slashes
+                { file: "folder\\file.txt", result: "folder/file.txt" },
+                { file: "deep\\nested\\path\\file.txt", result: "deep/nested/path/file.txt" },
+                { file: "\\absolute\\path\\file.txt", result: "absolute/path/file.txt" }
             ];
 
             for (const { file, result } of Array.from(tests)) {
